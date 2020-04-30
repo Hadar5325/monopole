@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 public class FlowOfGame {
-
+    public static int numberOfPlayer =1;
     private int sizeOfGame;
 
     FlowOfGame(int sizeOfGame) {
@@ -15,7 +15,7 @@ public class FlowOfGame {
 
 
     void printBoard() {
-
+            int[] position = new int[this.sizeOfGame];
             orderOfBoard();
             // moving action in game
             player.movingforwordPlayer();
@@ -23,7 +23,11 @@ public class FlowOfGame {
            // after throwing the dices get the state without circle
             int stateInGame = player.getStateInGame();
             int afterCircleStateInGame = stateInGame % (this.sizeOfGame);
-
+            for(int pos=0; pos < sizeOfGame ; pos++){
+                if(pos == afterCircleStateInGame){
+                    System.out.println("["+ numberOfPlayer + "]");
+                }
+            }
     }
 
     public void orderOfBoard() {
@@ -73,6 +77,7 @@ public class FlowOfGame {
             }
             System.out.print(valueOfEachCell[i] + " ");
         }
+        System.out.println("\n");
     }
 }
 
